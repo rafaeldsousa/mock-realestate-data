@@ -7,9 +7,7 @@
             "loremParagraphs": { "minLength": 200, "maxLength": 500 }
         },
         "photos": {
-            "hasMany": {
-                "regexp": "https://picsum\\.photos/seed/[0-9]{5}/1920/1080"
-            }
+            "hasMany": "Photo"
         },
         "listingAgent": {
             "belongsTo": "Agent"
@@ -17,27 +15,62 @@
         "tags": {
             "hasMany": "Tag"
         },
+        "address": "address",
+        "price": "price",
+        "bedrooms": "number",
+        "bathrooms": "number",
+        "squareFeet": "number",
+        "lotSize": "number",
+        "yearBuilt": "number",
+        "propertyType": "propertyType",
+        "listingType": "listingType",
+        "status": "status",
+        "mlsNumber": "number",
+        "mlsName": "mlsName",
+        "mlsUrl": "url",
+        "mlsLogo": "image",
+        "mlsLogoUrl": "url",
+        "mlsLogoWidth": "number",
+        "mlsLogoHeight": "number",
+        "mlsLogoAlt": "loremWords",
+        "mlsLogoTitle": "loremWords",
+        "mlsLogoCaption": "loremWords",
+        "mlsLogoDescription": "loremWords",
+        "mlsLogoCredit": "loremWords",
+        "mlsLogoCreditUrl": "url",
+        "listingStatus": ["published", "draft"],
         "updated": {
             "dateTime": {
-              "min": "2022-01-01T00:00:00Z"
+                "min": "2022-01-01T00:00:00Z",
+                "max": "2023-12-31T23:59:59Z"
             }
         },
         "created": {
             "dateTime": {
-              "min": "2022-01-01T00:00:00Z"
+                "min": "2022-01-01T00:00:00Z",
+                "max": "2023-12-31T23:59:59Z"
             }
         }
     },
     "Agent": {
-        "name": { "string": {} },
-        "email": { "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}" },
-        "registration": { "int": {}},
-        "active": { "boolean": {} },
+        "name": "firstName",
+        "email": "email",
+        "registration": "uuid",
+        "bio": {
+            "text": [100]
+        },
+        "active": "boolean",
         "avatar": {
             "regexp": "https://i\\.pravatar\\.cc/150\\?u=[0-9]{5}"
         }
     },
     "Tag": {
         "name": { "loremWord": {} }
+    },
+    "Photo": {
+        "regexp": "https://picsum\\.photos/seed/[0-9]{5}/1920/1080",
+        "listing": {
+            "belongsTo": "Listing"
+        }
     }
 }
