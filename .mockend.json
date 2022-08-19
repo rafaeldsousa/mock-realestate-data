@@ -1,11 +1,7 @@
 {
     "Listing": {
-        "title": {
-            "loremWords": { "minLength": 1, "maxLength": 2 }
-        },
-        "description": {
-            "loremParagraphs": { "minLength": 200, "maxLength": 500 }
-        },
+        "title": "title",
+        "description": "paragraphs",
         "photos": {
             "hasMany": "Photo"
         },
@@ -16,29 +12,18 @@
             "hasMany": "Tag"
         },
         "address": "address",
+        "city": "city",
+        "postcode": "postcode",
+        "state": "state",
         "price": "price",
-        "bedrooms": "number",
-        "bathrooms": "number",
-        "squareFeet": "number",
-        "lotSize": "number",
-        "yearBuilt": "number",
-        "propertyType": "propertyType",
-        "listingType": "listingType",
-        "status": "status",
-        "mlsNumber": "number",
-        "mlsName": "mlsName",
-        "mlsUrl": "url",
-        "mlsLogo": "image",
-        "mlsLogoUrl": "url",
-        "mlsLogoWidth": "number",
-        "mlsLogoHeight": "number",
-        "mlsLogoAlt": "loremWords",
-        "mlsLogoTitle": "loremWords",
-        "mlsLogoCaption": "loremWords",
-        "mlsLogoDescription": "loremWords",
-        "mlsLogoCredit": "loremWords",
-        "mlsLogoCreditUrl": "url",
-        "listingStatus": ["published", "draft"],
+        "bedrooms": {"int": { "min": 1, "max": 10 }},
+        "bathrooms": {"int": { "min": 1, "max": 10 }},,
+        "squareFeet": "randomFloat",
+        "lotSize": "randomFloat",
+        "yearBuilt": "year",
+        "propertyType": ["Single Family", "Condo", "Townhouse", "Multi Family", "Land", "Commercial"],
+        "status": ["Active", "Pending", "Sold"],
+        "displayStatus": ["published", "draft"],
         "updated": {
             "dateTime": {
                 "min": "2022-01-01T00:00:00Z",
@@ -53,12 +38,11 @@
         }
     },
     "Agent": {
-        "name": "firstName",
+        "name": [["firstNameMale", "lastName"], ["firstNameFemale", "lastName"]],
         "email": "email",
+        "phonenumber": "phoneNumber",
         "registration": "uuid",
-        "bio": {
-            "text": [100]
-        },
+        "bio": "bs",
         "active": "boolean",
         "avatar": {
             "regexp": "https://i\\.pravatar\\.cc/150\\?u=[0-9]{5}"
