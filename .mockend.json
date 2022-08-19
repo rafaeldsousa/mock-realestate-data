@@ -38,7 +38,8 @@
         }
     },
     "Agent": {
-        "name": [["firstNameMale", "lastName"], ["firstNameFemale", "lastName"]],
+        "firstName": ["firstNameMale", "firstNameFemale"],
+        "lastName": "lastName",
         "email": "email",
         "phonenumber": "phoneNumber",
         "registration": "uuid",
